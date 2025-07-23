@@ -19,6 +19,12 @@ food_database = {
     "apple": { "calories": 52, "protein": 0.3, "carbs": 14, "fat": 0.2 }
 }
 
+from fastapi import HTTPException
+
 @app.get("/food/{name}")
 def get_food(name: str):
-    return food_database.get(name.lower(), {})
+    print("User searched for:", name)
+    food = food_database.get(name.lower())
+    if food:
+        return { "name": name, "calories": food["calories"] }
+    raise HTTPException(status_code=404, detail="Food not found")
