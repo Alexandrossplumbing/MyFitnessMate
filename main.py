@@ -7,7 +7,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"]
 )
 
 food_database = {
@@ -16,7 +16,7 @@ food_database = {
     "rice": { "calories": 130, "protein": 2.4, "carbs": 28, "fat": 0.3 },
     "broccoli": { "calories": 55, "protein": 3.7, "carbs": 11, "fat": 0.6 },
     "egg": { "calories": 68, "protein": 6, "carbs": 0.6, "fat": 4.8 },
-    "apple": { "calories": 52, "protein": 0.3, "carbs": 14, "fat": 0.2 },
+    "apple": { "calories": 52, "protein": 0.3, "carbs": 14, "fat": 0.2 }
 }
 
 @app.get("/food/{name}")
